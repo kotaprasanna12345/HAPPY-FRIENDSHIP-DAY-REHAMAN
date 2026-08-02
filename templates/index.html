@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Friendship Portal for Rehaman 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- 🎁 INITIAL SURPRISE OVERLAY -->
+    <div id="surprise-overlay" class="surprise-overlay">
+        <div class="surprise-content">
+            <div class="gift-box-icon">🎁</div>
+            <h1>Hey Rehaman! You've Got a Special Surprise!</h1>
+            <p>Tap the button below to unlock your ultimate Friendship Day portal...</p>
+            <button class="open-surprise-btn" onclick="openSurprise()">Open Surprise ✨</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER (Hidden initially) -->
+    <div id="main-container" class="container main-content-hidden">
+        
+        <nav>
+            <a href="#">Besties Forever 💫</a>
+        </nav>
+
+        <div class="hero-section">
+            <h1>Happy Friendship Day, Rehaman! 🎉</h1>
+            <p class="hero-subtitle">Dedicated to the person who makes life worth laughing through.</p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>366</h3>
+                    <p>Days of Friendship</p>
+                </div>
+                <div class="stat-card">
+                    <h3>9999</h3>
+                    <p>Smiles Shared</p>
+                </div>
+                <div class="stat-card">
+                    <h3>520</h3>
+                    <p>Memories Created</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="next-surprise-btn" onclick="revealNext('reasons-section', this)">🎁 Click for Next Surprise!</button>
+
+        <!-- SURPRISE 1: Reasons Section -->
+        <div id="reasons-section" class="section-box progressive-surprise">
+            <h2>Why Rehaman is My Best Friend 🌟</h2>
+            <p class="subtitle">The core reasons why you're irreplaceable</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">🎯 Rehaman, nuvvu chese overaction ki assalu limit ledu, kabatte naaku antha ishtam!</div>
+                <div class="reason-card">🍕 Enni sarlu food order ichina, na daggara tinadam matram marichipovu.</div>
+                <div class="reason-card">🛡️ Na chetta secrets anni evariki cheppakunda dachinanduku thanks ra!</div>
+                <div class="reason-card">😂 Nuvvu eduruga unte chalu, badha anedi asalu radu.</div>
+            </div>
+
+            <button class="next-surprise-btn" onclick="revealNext('timeline-section', this)">🎁 Click for Next Surprise!</button>
+        </div>
+
+        <!-- SURPRISE 2: Timeline Section -->
+        <div id="timeline-section" class="section-box progressive-surprise">
+            <h2>Our Friendship Timeline ⏳</h2>
+            <p class="subtitle">How it started vs How it's going</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="timeline-year">Day 1</span>
+                    <h3>The Awkward First Meet</h3>
+                    <p>Evaru evaro teliyadu, kani ippudu okate gang lo racha chestunnam.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">The Chaos</span>
+                    <h3>Countless Memories</h3>
+                    <p>Class lo silent ga undalsina vallam, bunk kottadam lo masters ayyam.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">Forever</span>
+                    <h3>My Blood / Partner in Crime</h3>
+                    <p>Rehaman, evado okadu ochevaraku, manam ilage edavadam pakka ra! ❤️</p>
+                </div>
+            </div>
+
+            <button class="next-surprise-btn" onclick="revealNext('quiz-section', this)">🎁 Click for Next Surprise!</button>
+        </div>
+
+        <!-- SURPRISE 3: Mini Quiz -->
+        <div id="quiz-section" class="section-box progressive-surprise">
+            <h2>Bestie Vibe Check Quiz 🧠</h2>
+            <p class="subtitle">Let's test how well you know our bond!</p>
+            
+            <div class="quiz-box">
+                <p><strong>Who talks the most nonsense in our group?</strong></p>
+                <div class="quiz-options">
+                    <button onclick="checkAnswer(false)">Me</button>
+                    <button onclick="checkAnswer(true)">100% Rehaman! 😂</button>
+                </div>
+                <p id="quiz-result" class="quiz-result-text"></p>
+            </div>
+
+            <button class="next-surprise-btn" onclick="revealNext('gallery-section', this)">🎁 Click for Next Surprise!</button>
+        </div>
+
+        <!-- SURPRISE 4: Gallery Section -->
+        <div id="gallery-section" class="section-box progressive-surprise">
+            <h2>Our Hall of Fame (Memories) 📸</h2>
+            <p class="subtitle">Warning: Too much cuteness (and comedy) ahead!</p>
+            
+            <div class="gallery">
+                <div class="memory-card">
+                    <img src="{{ url_for('static', filename='images/photo1.jpg') }}" alt="Memory 1">
+                    <p>First Outing</p>
+                </div>
+                <div class="memory-card">
+                    <img src="{{ url_for('static', filename='images/photo2.jpg') }}" alt="Memory 2">
+                    <p>Madness Level Max</p>
+                </div>
+                <div class="memory-card">
+                    <img src="{{ url_for('static', filename='images/photo3.jpg') }}" alt="Memory 3">
+                    <p>Foodie Vibes</p>
+                </div>
+                <div class="memory-card">
+                    <img src="{{ url_for('static', filename='images/photo4.jpg') }}" alt="Memory 4">
+                    <p>Random Shenanigans</p>
+                </div>
+                <div class="memory-card">
+                    <img src="{{ url_for('static', filename='images/photo5.jpg') }}" alt="Memory 5">
+                    <p>Forever Gang</p>
+                </div>
+            </div>
+
+            <button class="next-surprise-btn" onclick="revealNext('extra-surprise-section', this)">🎁 Click for One More Surprise!</button>
+        </div>
+
+        <!-- SURPRISE 5: Bonus Compliment Generator -->
+        <div id="extra-surprise-section" class="section-box progressive-surprise">
+            <h2>🎁 Bonus Surprise: Rehaman's Compliment Generator!</h2>
+            <p class="subtitle">Tap the button to unlock your daily dose of praise (or reality check! 😂)</p>
+            
+            <div class="bonus-box">
+                <p id="compliment-text" class="compliment-display">Click below to reveal a secret truth! ✨</p>
+                <button class="bonus-btn" onclick="generateCompliment()">Generate Surprise Compliment 💖</button>
+            </div>
+
+            <button class="next-surprise-btn" onclick="revealNext('letter-section', this)">🎁 Click for Final Letter!</button>
+        </div>
+
+        <!-- SURPRISE 6: Final Letter -->
+        <div id="letter-section" class="letter-section progressive-surprise">
+            <h2>💌 A Special Letter For Rehaman</h2>
+            <div class="letter-box">
+                "Rehaman, natho prati roju oka celebration la untadi ra. Nuvvu lekunte na life lo antha bore kottedi. Enni kastalu ochina, manam eppudu kalise undam. Happy Friendship Day ra my blood, my best friend Rehaman! 🥂❤️"
+            </div>
+            <p style="margin-top: 25px; font-weight: 700; color: #d63031;">🎉 You've unlocked all surprises! Happy Friendship Day Rehaman my blood! ❤️</p>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function openSurprise() {
+            document.getElementById('surprise-overlay').style.display = 'none';
+            document.getElementById('main-container').classList.remove('main-content-hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function revealNext(sectionId, buttonElement) {
+            const nextSection = document.getElementById(sectionId);
+            if (nextSection) {
+                nextSection.style.display = 'block';
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            buttonElement.style.display = 'none'; // Hide the clicked button
+        }
+
+        function checkAnswer(isCorrect) {
+            const resultText = document.getElementById('quiz-result');
+            if (isCorrect) {
+                resultText.innerText = "Correct! Rehaman, nuvve anni kante ekkuva matladathav! 😂🔥";
+                resultText.style.color = "#00b894";
+            } else {
+                resultText.innerText = "Wrong answer! Nijam oppuko ra babu! 😜";
+                resultText.style.color = "#d63031";
+            }
+        }
+
+        const compliments = [
+            "Rehaman, nuvvu lekunte ee prapancham antha boring untadi ra! 🌍",
+            "Rehaman, nuvvu chese overaction ki Oscar award ivvochu! 🏆😂",
+            "Enni kastalu ochina, na venaka undedi nuvve ra my blood! ❤️",
+            "Food chuste chaalu, neeku picha energy vachestundi Rehaman! 🍕",
+            "Rehaman, nuvvu na best friend avvadam naa purva janma sukrutham! ✨"
+        ];
+
+        function generateCompliment() {
+            const randomIndex = Math.floor(Math.random() * compliments.length);
+            const complimentElement = document.getElementById("compliment-text");
+            if(complimentElement) {
+                complimentElement.innerText = compliments[randomIndex];
+            }
+        }
+    </script>
+</body>
+</html>
